@@ -1,0 +1,27 @@
+.MainContainer{
+}
+
+.inputWrapper{
+    position: absolute; 
+    top:40%; left:55%;
+}
+
+.slugan{
+    font-size: 4rem;
+    font-weight: 900;
+    color: white;
+    margin: 15px;
+}
+
+.score{
+    font-size: 4rem;
+    font-weight: 900;
+    color: white;
+    text-align: center;
+    margin: 5px;
+}
+
+.report{
+    color: white;
+    text-align: center;
+}
