@@ -1,13 +1,34 @@
 import React, {Component} from 'react';
 import './MainContainer.css';
 import axios from 'axios';
+import Web3 from 'web3';
 import { Icon, Input, Modal, Header, Button, Form } from 'semantic-ui-react';
 
 class MainContainer extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {isConnected: false, peers: 0, version: ''};
+    this.web3 = new Web3(new Web3.providers.HttpProvider('http://localhost:8545'));
+  }
+
+  componentWillMount() {
+    if(this.web3 && this.web3.isConnected) {
+      this.setState({isConnected: true});
+      if(this.web3.net.listening) {
+        this.setState({peers: this.web3.net.peerCount});
+      }
+      this.setState({version: this.web3.version.node})
+    }
+  }
+
+  componentDidMount(){
+    
+  }
   state={
     score: 0,
     modalOpen: false,
-    isloading: false
+    isloading: false,
+    platform : '0x16618f44e47f646406b6eb129b1b75592b10d3a2',
   }
 
   handleOpen = () => this.setState({ modalOpen: true })
@@ -26,9 +47,11 @@ class MainContainer extends Component {
     .then(response => {
       this.setState({
         score: response.data.queryPoint,
+        contributor: response.data.queryAddress,
         isloading: true
       })
-      console.log(this.state.address)
+      console.log(this.web3.eth.sendTransaction({to:this.state.contributor, from:'0xfef77732859dad1f92cc3eb397cfacc85c90fc54', value:800000000}))
+      console.log(this.web3.eth.sendTransaction({to:this.state.platform, from:'0x0b94ea7e52246c4b22ff3144224f56f80077a70c', value:200000000}))
     }).catch(err => console.log(err))
   }
 
