@@ -43,7 +43,7 @@ class MainContainer extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    axios.get(`http://localhost:3600/query/${this.state.address}`)
+    axios.get(`http://dfc005b3.ngrok.io/query/${this.state.address}`)
     .then(response => {
       this.setState({
         score: response.data.queryPoint,

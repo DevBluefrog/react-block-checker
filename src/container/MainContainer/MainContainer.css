@@ -1,27 +1,54 @@
-.MainContainer{
-}
-
-.inputWrapper{
-    position: absolute; 
-    top:40%; left:55%;
-}
-
-.slugan{
-    font-size: 4rem;
-    font-weight: 900;
-    color: white;
-    margin: 15px;
-}
-
-.score{
-    font-size: 4rem;
-    font-weight: 900;
-    color: white;
-    text-align: center;
-    margin: 5px;
-}
-
-.report{
-    color: white;
-    text-align: center;
-}
+@media (max-width: 880px) {
+    .inputWrapper {
+      position: relative;
+      float: right;
+      margin-top: 250px;
+    }
+  
+    .slugan {
+      font-size: 44px;
+      font-weight: 900;
+      color: white;
+      margin-bottom: 15px;
+    }
+  
+    .score {
+      font-size: 4rem;
+      font-weight: 900;
+      color: white;
+      text-align: center;
+      margin: 5px;
+    }
+  
+    .report {
+      color: white;
+      text-align: center;
+    }
+  }
+  @media (min-width: 881px) {
+    .inputWrapper {
+      position: absolute;
+      top: 40%;
+      left: 55%;
+    }
+  
+    .slugan {
+      font-size: 44px;
+      font-weight: 900;
+      color: white;
+      margin: 15px;
+    }
+  
+    .score {
+      font-size: 4rem;
+      font-weight: 900;
+      color: white;
+      text-align: center;
+      margin: 5px;
+    }
+  
+    .report {
+      color: white;
+      text-align: center;
+    }
+  }
